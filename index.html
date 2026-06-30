@@ -9,4 +9,26 @@
 <body>
     <h1>Привет, мир!</h1>
     <p>Всем привет!!!</p>
+    <div id="counter">0</div>
+
+    <div class="buttons">
+        <button id="dec">−</button>
+        <button id="reset">↺</button>
+        <button id="inc">+</button>
+    </div>
+
+    <script>
+        let count = 0;
+        const display = document.getElementById('counter');
+
+        function update(next) {
+          count = next;
+          display.textContent = count;
+//          display.className = count > 0 ? 'positive' : count < 0 ? 'negative' : '';
+        }
+
+        document.getElementById('inc').addEventListener('click', () => update(count + 1));
+        document.getElementById('dec').addEventListener('click', () => update(count - 1));
+        document.getElementById('reset').addEventListener('click', () => update(0));
+  </script>
 </body>
